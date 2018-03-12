@@ -62,6 +62,33 @@ def loops_1a():
 
 loops_1a()
 
+def star_map():
+
+    """Use a map to make stars and bangs.
+
+Using a map, return a list of 10 items, each one a string with exacly
+
+one star in it if the index is odd and exactly one exclamation mark
+
+if it's even. Reuse the is odd function that you've already written.
+
+E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
+
+"""
+
+    list=[]
+
+    for a in range (0,10):
+
+        if is_odd(a)== True:
+
+            list.append(str("!"))
+
+        else:
+
+            list.append(str("*"))
+
+return list
     
 
 
