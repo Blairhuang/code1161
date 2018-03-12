@@ -3,8 +3,8 @@
 
 
 def add_5(a_number):
-    """Return a number that is 5 bigger than number given.'
-    
+    """Return a number that is 5 bigger than number given.
+
     This isn't a trick!
     First thing to do is to remove the pass. That's just tellign python that
     the empty block is intentional - it's python's "this page is intentionally
@@ -13,8 +13,8 @@ def add_5(a_number):
         return a_number plus five
     except expressed in python, not english
     """
-            
-    return (a_number+5)
+    b=5+a_number
+    return b
 
 
 def adder(a_number, another_number):
@@ -22,11 +22,11 @@ def adder(a_number, another_number):
 
     Same as above, but with any two numbers.
     """
-    return (a_number+7)
+    B=a_number+another_number
+    return B
 
 
 def shout(a_string):
-    return(a_string.upper())
     """Return a string in uppercase.
 
     look up the docs for string methods. Either in the official docs, here:
@@ -34,22 +34,20 @@ def shout(a_string):
     or in any of the million places that google will give you.
     "python make a string uppercase" is a good starting search query.
     """
-    
+    return a_string.upper()
 
 
 def really_shout(a_string):
-    return(a_string.upper()+'!')
-
     """Return a string in uppercase, with an exclamation mark on the end.
 
     In the spirit of being DRY (don't repeat yourself) reuse the shout function
     from above.
     Look up how to 'concatinate' strings to make this happen.
     """
-    pass
+    return a_string.upper()+'!'
+    
 
 def shout_with_a_number(a_string, a_number):
-    return(a_string.upper()+' '+'18')
     """Return a string in uppercase with a space and a_number concatentated.
     E.g.
     >>> shout_with_a_number('hello', 42)
@@ -57,17 +55,15 @@ def shout_with_a_number(a_string, a_number):
 
     HINT: Lookup how to cast a_number to a string or lookup how to use f-strings in python
     """
-    pass
+    
+    return a_string.upper()+' '+str(a_number)
 
 
 def minitest(f, args, expected):
-
     """Run a function with a list of args and print a response.
 
     This is a helper. Don't edit it.
     """
-
-    
     result = f(*args)
     template = "expect {name}({args}) == {expected} => {result}"
     print(template.format(name=f.__name__,
@@ -98,4 +94,3 @@ if __name__ == "__main__":
 
           REMEMBER: these aren't the tests that you submit, these are just
           there to keep you sane.""")
-
