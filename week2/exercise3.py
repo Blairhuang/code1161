@@ -1,29 +1,50 @@
 # -*- coding: UTF-8 -*-
 """Modify each function until the tests pass."""
-from __future__ import division
-from __future__ import print_function
 
 
-def is_odd(a_number):
-    """Return True if a_number is odd, and False if a_number is even.
+def is_odd(a_number): 
+    number=a_number
+    if number % 2 == 0:
+        return(False)
+    else:
+        return(True)
+print(is_odd(5))
 
+       
+"""Return True if a_number is odd, and False if a_number is even.
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
 
-
-def fix_it(moves=True, should_move=True):
+print('Dose it move?')
+def fix_it(answer1,answer2):
     """Decide what to do.
 
-    Using the engineering flowchart for the rules, return the apropriate
-    response to the input parameters.
+    Using the engineering flowchart (in week2 folder engineeringFlowchart.png)
+    for the rules, return the apropriate response to the input parameters.
     Use conditional statements: if, else, elif etc.
     This function should return either:
     "WD-40"
     "Duct Tape"
     "No Problem"
     """
-    pass
+
+    my_answer1=answer1
+    my_answer2=answer2
+    if my_answer1==True and my_answer2==True:
+        return('No problem.')
+    elif my_answer1==True and my_answer2!=True:
+        return('Duct Tape')
+    elif my_answer1!=True and my_answer2==True:
+        return('WD-40')
+    else:
+        return('No problem.')
+
+print(fix_it(False,True))
+
+   
+
+
+    
 
 
 def loops_1a():
@@ -33,21 +54,20 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    pass
+    for a in range(1,2):
+        AA=[]
+        for b in range(1,11):
+            AA.append('*')
+        print(AA)
 
+loops_1a()
 
-def star_map():
-    """Use a map to make stars and bangs.
+    
 
-    Using a map, return a list of 10 items, each one a string with exacly
-    one star in it if the index is odd and exactly one exclamation mark
-    if it's even. Reuse the is odd function that you've already written.
-    E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
-    """
-    pass
 
 
 def loops_1c(number_of_items=5, symbol="#"):
+    
     """Respond to variables.
 
     using any method
@@ -55,8 +75,6 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
-
 
 def loops_2():
     """Make a big square starfield.
@@ -76,10 +94,20 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    for a in range(1,11):
+        AA=[]
+        for b in range(1,11):
+            AA.append('*')
+        print(AA)
+loops_2()
+    
 
 
-def loops_3():
+
+   
+
+
+def loops_3(): 
     """Make a rising block of numbers.
 
     Return this:
@@ -100,7 +128,15 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    for a in range(0,10):
+        money=[]
+        for b in range(1,10):
+            money.append(a)
+        print(money)
+
+loops_3()
+    
+
 
 
 def loops_4():
@@ -115,11 +151,25 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    for a in range(0,10):
+        blair=[]
+        for b in range(0,10):
+            blair.append(b)
+        print(blair)
 
+loops_4()
+    
+      
+
+
+
+
+    
 
 def loops_5():
     """Make the coordinates of the block.
@@ -143,7 +193,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    for a in range(0,10):
+        aa=[]
+        for b in range(0,5):
+            aa.append('(i'+str(a)+',j'+str(b)+')')
+        print(aa)
+
+loops_5()
 
 
 def loops_6():
@@ -166,7 +222,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    for a in range(0,11):
+        money1=[]
+        for b in range(0,a):
+            money1.append(b)
+        print(money1)
+
+loops_6()
 
 
 def loops_7():
@@ -181,8 +243,8 @@ def loops_7():
         ['*', '*', '*', '*', '*', '*', '*', '*', '*']
     ]
     or in more simple terms:
-            *
-          * * *
+           *
+         * * *
         * * * * *
       * * * * * * *
     * * * * * * * * *
@@ -190,7 +252,13 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    for a in range(1,6):
+        print(' '*(5-a)+'*'*(2*a-1))
+
+loops_7()
+
+
+
 
 
 def lp(some_kind_of_list, exercise_name):
@@ -227,7 +295,6 @@ if __name__ == "__main__":
     print(fix_it(False, True), "fix_it")
     print(fix_it(False, False), "fix_it")
     lp(loops_1a(), "loops_1a")
-    lp(star_map(), "star_map")
     lp(loops_1c(4, "×°×"), "loops_1c")
     lp(loops_2(), "loops_2")
     lp(loops_3(), "loops_3")
