@@ -8,14 +8,14 @@ def is_odd(a_number):
         return(False)
     else:
         return(True)
-print(is_odd(5))
+
 
        
 """Return True if a_number is odd, and False if a_number is even.
     Look into modulo division using the '%' operator as one way of doing this.
     """
 
-print('Dose it move?')
+print('Dose it move? \nshould it?')
 def fix_it(answer1,answer2):
     """Decide what to do.
 
@@ -39,7 +39,7 @@ def fix_it(answer1,answer2):
     else:
         return('No problem.')
 
-print(fix_it(False,True))
+
 
    
 
@@ -58,9 +58,9 @@ def loops_1a():
         AA=[]
         for b in range(1,11):
             AA.append('*')
-        print(AA)
+        return(AA)
 
-loops_1a()
+        
 
 def star_map():
 
@@ -125,9 +125,8 @@ def loops_2():
         AA=[]
         for b in range(1,11):
             AA.append('*')
-        print(AA)
-loops_2()
-    
+        return(AA)
+
 
 
 
@@ -156,12 +155,12 @@ def loops_3():
          so call str(number) to cast.
     """
     for a in range(0,10):
-        money=[]
+        list=[]
         for b in range(1,10):
-            money.append(a)
-        print(money)
+            list.append(a)
+        return(list)
 
-loops_3()
+
     
 
 
@@ -187,9 +186,9 @@ def loops_4():
         blair=[]
         for b in range(0,10):
             blair.append(b)
-        print(blair)
+        return(blair)
 
-loops_4()
+
     
       
 
@@ -224,9 +223,9 @@ def loops_5():
         aa=[]
         for b in range(0,5):
             aa.append('(i'+str(a)+',j'+str(b)+')')
-        print(aa)
+        return(aa)
 
-loops_5()
+
 
 
 def loops_6():
@@ -253,9 +252,9 @@ def loops_6():
         money1=[]
         for b in range(0,a):
             money1.append(b)
-        print(money1)
+        return(money1)
 
-loops_6()
+
 
 
 def loops_7():
@@ -280,9 +279,8 @@ def loops_7():
     lots of diagrams!
     """
     for a in range(1,6):
-        print(' '*(5-a)+'*'*(2*a-1))
+        return(' '*(5-a)+'*'*(2*a-1))
 
-loops_7()
 
 
 
