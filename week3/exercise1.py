@@ -12,11 +12,15 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    list=[]
-    for a in range(0,10):
-       list.append(a)
-    return list
-       
+    list_1=[]
+    i=start
+    while i<stop:
+        list_1.append(i)
+        i+=step
+    return list_1
+
+
+        
 
 
 
@@ -26,8 +30,12 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    a=[i for i in range(0,4) for j in range(0,3)]
-    return(a)
+    list_1=[]
+    i=start
+    while i<stop:
+        list_1.append(i)
+        i+=step
+    return list_1
 
 
 def two_step_ranger(start, stop):
@@ -37,8 +45,10 @@ def two_step_ranger(start, stop):
     Make a range function that always has a step size of 2
     """
     list=[]
-    for a in range(0,7,2):
+    a=start
+    while a<stop:
         list.append(a)
+        a+=2
     return list
     
 
@@ -57,18 +67,16 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    import random
-    a=random.randint(1,100)
-    n=input('enter the number: ')
+    
+    A=range(low,high)
     while True:
-        n=int(n)
-        if n>a:
-            return('The number is bigger.')
-        elif n<a:
-            return('The number is smaller.')
-        elif n==a:
-            return('ok')
+        number=input('Enter the number: ')
+        if number in A:
+            return('OK')
+        elif number not in A:
+            return('try again')
             break
+
 
 
 
@@ -83,22 +91,21 @@ def not_number_rejector(message):
     """
     import random
     a=random.randint(1,100)
+    message=input('please enter a number: ')
     while True:
-        n=input('enter the number: ')
-        if n.isdigit():
-            n==int(n)
-            if n==a:
-                return('ok')
-            elif n>a:
-                return('The number is bigger.')
-            elif n<a:
-                return('The number is smaller.')
-            else:
-                return('Please enter a number.')
-        
-    
-    
+        if message.isdigit():
+            message=int(message)
+            if message>a:
+                return('it is big.')
+            elif message<a:
+                return('it is small.')
+            elif message==a:
+                return('you got it')
+                break
+        else:
+            return('try agian.')
 
+    
 
 def super_asker(low, high):
     """Robust asking function.
@@ -125,6 +132,6 @@ if __name__ == "__main__":
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    not_number_rejector()
+    not_number_rejector(' number ')
     print("\nsuper_asker")
     super_asker(33, 42)

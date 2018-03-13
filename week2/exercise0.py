@@ -13,8 +13,7 @@ def add_5(a_number):
         return a_number plus five
     except expressed in python, not english
     """
-    b=5+a_number
-    return b
+    return a_number+5
 
 
 def adder(a_number, another_number):

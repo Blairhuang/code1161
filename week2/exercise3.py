@@ -28,7 +28,7 @@ def fix_it(moves=True, should_move=True):
     "No Problem"
     """
     if moves == should_move:
-        return('No problem')
+        return('No Problem')
     else:
         if moves == True and should_move == False:
             return('Duct Tape')
@@ -58,12 +58,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    symbol='#'
-    number_of_items=5
     list=[]
     for a in range(number_of_items):
-        if a <5:
-            list.append(symbol)
+        if a< number_of_items:
+            list.append(str(symbol))
     return(list)
 
 
@@ -124,8 +122,7 @@ def loops_3():
     for i in range(0,10):
         list2=[]
         for j in range(0,10):
-            if i<10 and j<10:
-                list2.append(i)
+            list2.append(str(i))
         list.append(list2)
     return list
 
@@ -151,7 +148,7 @@ def loops_4():
         list2=[]
         for j in range(0,10):
             if i<10 and j<10:
-                list2.append(j)
+                list2.append(str(j))
         list.append(list2)
     return list
 
@@ -184,7 +181,7 @@ def loops_5():
     for a in range(0,10):
         list2=[]
         for b in range(0,5):
-            list2.append('(i'+str(a)+',j'+str(b)+')')
+            list2.append('(i'+str(a)+', j'+str(b)+')')
         list.append(list2)
     return(list)
 
@@ -210,10 +207,10 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     list=[]
-    for a in range(0,11):
+    for a in range(0,10):
         list2=[]
-        for b in range(0,a):
-            list2.append(b)
+        for b in range(0,a+1):
+            list2.append(str(b))
         list.append(list2)
     return(list)
 
@@ -241,7 +238,7 @@ def loops_7():
     list=[]
     for a in range(0,6):
         list2=[]
-        list2.append(' '*(5-a)+'*'*(2*a-1))
+        list2.append(' '*(4-a)+'*'*(2*a-1)+' '*(4-a))
         list.append(list2)
     return(list)
 
