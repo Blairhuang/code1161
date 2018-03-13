@@ -52,7 +52,7 @@ def ex3runs(path):
                             os.path.join(path, "week"+str(WEEK_NUMBER)))
             return True
         else:
-            import ('exercise3')
+            import exercise3
             return True
     except Exception as e:
         print("\nThere is a syntax error in exercise3", str(e))

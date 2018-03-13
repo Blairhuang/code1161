@@ -2,21 +2,21 @@
 """Modify each function until the tests pass."""
 
 
-def is_odd(a_number):
-    """Return True if a_number is odd, and False if a_number is even.
+def is_odd(a_number): 
+    number=a_number
+    if number % 2 == 0:
+        return(False)
+    else:
+        return(True)
 
+
+       
+"""Return True if a_number is odd, and False if a_number is even.
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    if a_number % 2 == 0:
-        return False
-    else:
-        return True
 
-   
-           
-
-
-def fix_it(moves=True, should_move=True):
+print('Dose it move? \nshould it?')
+def fix_it(answer1,answer2):
     """Decide what to do.
 
     Using the engineering flowchart (in week2 folder engineeringFlowchart.png)
@@ -27,13 +27,25 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    if moves == should_move:
-        return('No problem')
+
+    my_answer1=answer1
+    my_answer2=answer2
+    if my_answer1==True and my_answer2==True:
+        return('No problem.')
+    elif my_answer1==True and my_answer2!=True:
+        return('Duct Tape')
+    elif my_answer1!=True and my_answer2==True:
+        return('WD-40')
     else:
-        if moves == True and should_move == False:
-            return('Duct Tape')
-        else:
-            return('WD-40')
+        return('No problem.')
+
+
+
+   
+
+
+    
+
 
 def loops_1a():
     """Make 10 stars.
@@ -42,15 +54,47 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
+    for a in range(1,2):
+        AA=[]
+        for b in range(1,11):
+            AA.append('*')
+        return(AA)
+
+        
+
+def star_map():
+
+    """Use a map to make stars and bangs.
+
+Using a map, return a list of 10 items, each one a string with exacly
+
+one star in it if the index is odd and exactly one exclamation mark
+
+if it's even. Reuse the is odd function that you've already written.
+
+E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
+
+"""
+
     list=[]
-    for a in range(0,10):
-        if a<10:
-            list.append('*')
-    return(list)
+
+    for a in range (0,10):
+
+        if is_odd(a)== True:
+
+            list.append(str("!"))
+
+        else:
+
+            list.append(str("*"))
+
+return list
+    
 
 
 
 def loops_1c(number_of_items=5, symbol="#"):
+    
     """Respond to variables.
 
     using any method
@@ -58,17 +102,6 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    symbol='#'
-    number_of_items=5
-    list=[]
-    for a in range(number_of_items):
-        if a <5:
-            list.append(symbol)
-    return(list)
-
-
-    
-
 
 def loops_2():
     """Make a big square starfield.
@@ -88,19 +121,20 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    list=[]
-    for a in range(0,10):
-        List2=[]
-        for b in range(0,10):
-            if a<10 and b<10:
-                List2.append('*')
-        list.append(List2)
-    return(list)
-  
+    for a in range(1,11):
+        AA=[]
+        for b in range(1,11):
+            AA.append('*')
+        return(AA)
 
 
-def loops_3():
-    """Make a rising block of numbersbb.
+
+
+   
+
+
+def loops_3(): 
+    """Make a rising block of numbers.
 
     Return this:
     [
@@ -120,14 +154,16 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    list=[]
-    for i in range(0,10):
-        list2=[]
-        for j in range(0,10):
-            if i<10 and j<10:
-                list2.append(i)
-        list.append(list2)
-    return list
+    for a in range(0,10):
+        list=[]
+        for b in range(1,10):
+            list.append(a)
+        return(list)
+
+
+    
+
+
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -146,17 +182,20 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    list=[]
-    for i in range(0,10):
-        list2=[]
-        for j in range(0,10):
-            if i<10 and j<10:
-                list2.append(j)
-        list.append(list2)
-    return list
+    for a in range(0,10):
+        blair=[]
+        for b in range(0,10):
+            blair.append(b)
+        return(blair)
+
+
+    
+      
 
 
 
+
+    
 
 def loops_5():
     """Make the coordinates of the block.
@@ -180,13 +219,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    list=[]
     for a in range(0,10):
-        list2=[]
+        aa=[]
         for b in range(0,5):
-            list2.append('(i'+str(a)+',j'+str(b)+')')
-        list.append(list2)
-    return(list)
+            aa.append('(i'+str(a)+',j'+str(b)+')')
+        return(aa)
+
+
 
 
 def loops_6():
@@ -209,13 +248,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    list=[]
     for a in range(0,11):
-        list2=[]
+        money1=[]
         for b in range(0,a):
-            list2.append(b)
-        list.append(list2)
-    return(list)
+            money1.append(b)
+        return(money1)
+
+
+
 
 def loops_7():
     """Make a pyramid.
@@ -229,8 +269,8 @@ def loops_7():
         ['*', '*', '*', '*', '*', '*', '*', '*', '*']
     ]
     or in more simple terms:
-            *
-          * * *
+           *
+         * * *
         * * * * *
       * * * * * * *
     * * * * * * * * *
@@ -238,12 +278,13 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    list=[]
-    for a in range(0,6):
-        list2=[]
-        list2.append(' '*(5-a)+'*'*(2*a-1))
-        list.append(list2)
-    return(list)
+    for a in range(1,6):
+        return(' '*(5-a)+'*'*(2*a-1))
+
+
+
+
+
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
