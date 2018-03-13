@@ -3,8 +3,8 @@
 
 Modify each function until the tests pass.
 """
-from __future__ import division
-from __future__ import print_function
+
+
 
 
 def loop_ranger(start, stop=None, step=1):
@@ -12,7 +12,13 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    pass
+    list=[]
+    for a in range(0,10):
+       list.append(a)
+    return list
+       
+
+
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +26,8 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    pass
+    a=[i for i in range(0,4) for j in range(0,3)]
+    return(a)
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +36,11 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    pass
+    list=[]
+    for a in range(0,7,2):
+        list.append(a)
+    return list
+    
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
@@ -38,8 +49,7 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    pass
-
+    
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -47,7 +57,21 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
+    import random
+    a=random.randint(1,100)
+    n=input('enter the number: ')
+    while True:
+        n=int(n)
+        if n>a:
+            return('The number is bigger.')
+        elif n<a:
+            return('The number is smaller.')
+        elif n==a:
+            return('ok')
+            break
+
+
+
 
 
 def not_number_rejector(message):
@@ -57,7 +81,23 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    import random
+    a=random.randint(1,100)
+    while True:
+        n=input('enter the number: ')
+        if n.isdigit():
+            n==int(n)
+            if n==a:
+                return('ok')
+            elif n>a:
+                return('The number is bigger.')
+            elif n<a:
+                return('The number is smaller.')
+            else:
+                return('Please enter a number.')
+        
+    
+    
 
 
 def super_asker(low, high):

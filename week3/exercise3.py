@@ -2,10 +2,10 @@
 
 Steps on the way to making your own guessing game.
 """
-from __future__ import division
-from __future__ import print_function
-from exercise1 import not_number_rejector
-from exercise1 import super_asker
+
+
+from .exercise1 import not_number_rejector
+from .exercise1 import super_asker
 import random
 
 
@@ -29,6 +29,7 @@ def advancedGuessingGame():
     purpose if you can!
     """
     return "You got it!"
+    
 
 
 if __name__ == "__main__":
