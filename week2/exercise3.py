@@ -28,7 +28,7 @@ def fix_it(moves=True, should_move=True):
     "No Problem"
     """
     if moves == should_move:
-        return('No Problem')
+        return('No problem')
     else:
         if moves == True and should_move == False:
             return('Duct Tape')
@@ -58,10 +58,12 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
+    symbol='#'
+    number_of_items=5
     list=[]
     for a in range(number_of_items):
-        if a< number_of_items:
-            list.append(str(symbol))
+        if a <5:
+            list.append(symbol)
     return(list)
 
 
@@ -122,7 +124,8 @@ def loops_3():
     for i in range(0,10):
         list2=[]
         for j in range(0,10):
-            list2.append(str(i))
+            if i<10 and j<10:
+                list2.append(i)
         list.append(list2)
     return list
 
@@ -148,7 +151,7 @@ def loops_4():
         list2=[]
         for j in range(0,10):
             if i<10 and j<10:
-                list2.append(str(j))
+                list2.append(j)
         list.append(list2)
     return list
 
@@ -181,7 +184,7 @@ def loops_5():
     for a in range(0,10):
         list2=[]
         for b in range(0,5):
-            list2.append('(i'+str(a)+', j'+str(b)+')')
+            list2.append('(i'+str(a)+',j'+str(b)+')')
         list.append(list2)
     return(list)
 
@@ -207,10 +210,10 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     list=[]
-    for a in range(0,10):
+    for a in range(0,11):
         list2=[]
-        for b in range(0,a+1):
-            list2.append(str(b))
+        for b in range(0,a):
+            list2.append(b)
         list.append(list2)
     return(list)
 
@@ -235,12 +238,18 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    list=[]
-    for a in range(0,6):
-        list2=[]
-        list2.append(' '*(4-a)+'*'*(2*a-1)+' '*(4-a))
-        list.append(list2)
-    return(list)
+    returnlist7 = []
+    for i in range(0,5):
+        list8 = []
+        for j in range(0,9):
+            list8.append("*")
+            if i + j < 4:
+                list8[j]= " "
+            symbol = i+4
+            if j > symbol:
+                list8[j] = " "
+        returnlist7.append(list8)
+    return returnlist7
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
