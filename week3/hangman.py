@@ -104,12 +104,22 @@ def playAgain():
     print('Do you want to play again? (yes or no)')
     return input().lower().startswith('y')
 
+def leaderboard():
+    global leaderboard
+    leaderboard=[]
+    for item in leaderboard:
+        for kay, value in game_stat.items():
+            print('{} {}'.format(key,value))#format{}
+
+
 
 print('H A N G M A N')
 missedLetters = ''
 correctLetters = ''
 secretWord = getRandomWord(words)
 gameIsDone = False
+leaderboard=[]
+player_name=input('Enter your name: ')
 while True:
     displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
     # Let the player type in a letter.
@@ -139,6 +149,11 @@ while True:
             gameIsDone = True
     # Ask the player if they want to play again (but only if the game is done).
     if gameIsDone:
+        score=len(correctLetters)/len(secretWord)
+        game_dict={}
+        game_dict['name']=player_name #key
+        game_dict
+
         if playAgain():
             missedLetters = ''
             correctLetters = ''
@@ -146,3 +161,4 @@ while True:
             secretWord = getRandomWord(words)
         else:
             break
+

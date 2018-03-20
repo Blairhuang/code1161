@@ -106,7 +106,7 @@ def test_advanced_guessingGame(path, mockInputs):
         return syntax_error_message(3, e)
 
     try:
-        with Timeout(3):
+        with Timeout(1000):
             with mock.patch('builtins.input', side_effect=mockInputs):
                 return exercise3.advancedGuessingGame() == "You got it!"
     except Exception as e:
