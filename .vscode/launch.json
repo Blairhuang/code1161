@@ -18,19 +18,6 @@
             "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "Python Experimental: Terminal (integrated)",
-            "type": "pythonExperimental",
-            "request": "launch",
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${file}",
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-            "debugOptions": [],
-            "internalConsoleOptions": "neverOpen"
-        },
-        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

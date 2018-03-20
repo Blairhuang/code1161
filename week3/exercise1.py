@@ -59,16 +59,16 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    number=int(input('Enter the number: '))
+    
+    A=range(low,high)
     while True:
-        if number >low and number<high:
-            return(number)
+        number=input('Enter the number: ')
+        if number in A:
+            return('OK')
+        elif number not in A:
+            return('try again')
             break
-        else:
-            number=int(input('Enter the number: '))
-            continue
 
-            
 
 
 
@@ -81,15 +81,21 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+    import random
+    a=random.randint(1,100)
     message=input('please enter a number: ')
     while True:
         if message.isdigit():
-            return message
-            break
+            message=int(message)
+            if message>a:
+                return('it is big.')
+            elif message<a:
+                return('it is small.')
+            elif message==a:
+                return('you got it')
+                break
         else:
-            message=input('enter again: ')
-            continue
-            
+            return('try agian.')
 
     
 
@@ -99,22 +105,7 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    while True:
-        number=input('Enter the number: '))
-        if number.isdigit():
-            return number 
-            break
-        else:
-            number=input('enter again: ')
-            continue
-    
-    while True:
-        if number >low and number<high:
-            return(number)
-            break
-        else:
-            number=int(input('Enter the right number: '))
-            continue
+    pass
 
 
 if __name__ == "__main__":
