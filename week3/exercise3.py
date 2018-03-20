@@ -9,10 +9,10 @@ from exercise1 import super_asker
 
 
 import random
+print('Welcome to the guessing game!(Remenmber,you only have 3 chances.)')
+print('A number between 10 and ?')
 
 def advancedGuessingGame():
-  print('Welcome to the guessing game!(Remenmber,you only have 3 chances.)')
-  print('A number between 10 and ?')
 
   A=input('enter the number you like:  ')
   while True:
@@ -46,7 +46,7 @@ def advancedGuessingGame():
     else:
       print('PLZ enter an integer.')
 
-advancedGuessingGame()
+
 
 
 
