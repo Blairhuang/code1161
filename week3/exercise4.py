@@ -7,6 +7,24 @@ import math
 
 
 def binary_search(low, high, actual_number):
+    list1=[low,high]
+    list1.sort()
+    actual_number=int(input('enter a number:  '))
+    start=0
+    end=len(list1)-1
+
+    while True:
+      mid_number=(start+end)//2
+      if actual_number==mid_number:
+        return True
+      elif actual_number>mid_number:
+        end=mid_number-1
+      else:
+        start=mid_number+1
+      if start>end:
+        
+
+
     """Do a binary search.
 
     This is going to be your first 'algorithm' in the usual sense of the word!

@@ -1,16 +1,8 @@
-import pip
-
-def install(package):
-    pip.main(['install', package])
-
-if __name__ == '__main__':
-    install('mock')
-
 import random
+
 
 def exampleGuessingGame():
     """Play a game with the user.
-
     This is an example guessing game. It'll test as an example too.
     """
     print("\nwelcome to the guessing game!")
@@ -19,7 +11,7 @@ def exampleGuessingGame():
     print("OK then, a number between 0 and {} ?".format(upperBound))
     upperBound = int(upperBound)
 
-    actualNumber =random.randint(0, upperBound)
+    actualNumber = random.randint(0, upperBound)
 
     guessed = False
 
@@ -38,4 +30,3 @@ def exampleGuessingGame():
 
 if __name__ == "__main__":
     exampleGuessingGame()
-
