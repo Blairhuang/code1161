@@ -112,11 +112,10 @@ def leaderboard():
             print('{} {}'.format(key,value))#format{}
 
 
-
 print('H A N G M A N')
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words)
+secretWord = getRandomWord(words) 
 gameIsDone = False
 leaderboard=[]
 player_name=input('Enter your name: ')

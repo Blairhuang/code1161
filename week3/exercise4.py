@@ -6,7 +6,31 @@ import math
 # import time
 
 
-def binary_search(low, high, actual_number):
+def binary_search(low, high, actual_number):    
+    list1=[]
+    for i in range(low,high):
+      list1.append(i)
+    guess=actual_number
+    tries=0
+    found = False
+  
+    while low <= high and not found:
+        midpoint = int((low+high)//2)
+        tries+=1
+        if list1[midpoint] == guess:
+          print(str(tries)+'times run.')
+          found = True
+        else:
+          if actual_number < list1[midpoint]:
+            high = midpoint - 1  
+            print(str(tries)+'times run.')
+          else: 
+            low = midpoint + 1 
+            print(str(tries)+'times run.')
+      
+
+
+
     """Do a binary search.
 
     This is going to be your first 'algorithm' in the usual sense of the word!
@@ -29,6 +53,8 @@ def binary_search(low, high, actual_number):
     """
 
     return {"guess": guess, "tries": tries}
+    #guess：actual_number
+    #tries:次数
 
 
 if __name__ == "__main__":
