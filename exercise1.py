@@ -1,151 +1,221 @@
-"""All about IO."""
+# -*- coding: UTF-8 -*-
+"""Refactoring.
+
+This exercise contains a complete and working example, but it's very poorly written.
+
+Your job is to go th xod as you can.
+
+That means making it self-documenting wherever possible, adding comments where
+it isn't. Take repeated code and make it into a function. Also use functions
+to encapsulate concepts. If something is done many times, maybe a map or a loop
+is called for. Etc.
+
+Some functions will have directions as external comments, once you think you
+are on top of it, take these comments out. Others won't have comments and
+you'll need to figure out for yourself what to do.
+"""
 
 
-import json
-import os
-import requests
-import inspect
-import sys
+# This is a terrible function. The rest of the functions in this file do a
+# much better job of what it's trying to do. Once you've has a little look,
+# move on, and eventually delete this function. (And this comment!)
+def do_bunch_of_bad_things():
+    for i in range(9,0,-1):
+        print('Getting ready to start in '+str(i))
+    print("Let's go!")
 
-# Handy constants
-LOCAL = os.path.dirname(os.path.realpath(__file__))  # the context of this file
-CWD = os.getcwd()  # The curent working directory
-if LOCAL != CWD:
-    print("Be careful that your relative paths are")
-    print("relative to where you think they are")
-    print("LOCAL", LOCAL)
-    print("CWD", CWD)
+    triangle = {"base": 3, "height":4}
+    triangle_hypotenuse = {"hypotenuse":(triangle["base"]**2 + triangle["height"]**2)**0.5}
+    print("area = " + str((triangle["base"] * triangle["height"])/2))
+    print("side lengths are:")   
+    print("base: {}".format(triangle["base"]))
+    print("height: {}".format(triangle["height"]))
+    print("hypotenuse: {}".format(triangle_hypotenuse["hypotenuse"]))
+
+    another_hyp = (5**2 + 6**2)**0.5
+    print(another_hyp)
+
+    yet_another_hyp = (40**2 + 30**2)**0.5
+    print(yet_another_hyp)
+
+
+# return a list of countdown messages, much like in the bad function above.
+# It should say something different in the last message.
+def countdown(message, start, stop, completion_message):
+    pass
+
+
+# TRIANGLES
+
+# This should be a series of functions that are ultimatly used by
+# triangle_master
+# It should eventually return a dictionary of triangle facts. It should
+# optionally print information as a nicely formatted string. Make printing
+# turned off by default but turned on with an optional argument.
+# The stub functions are made for you, and each one is tested, so this should
+# hand hold quite nicely.
+
+def calculate_hypotenuse(base, height):
+    hypotenuse = {(base**2 + height**2)**0.5}
+    return hypotenuse
+
+    
+
+    
+def calculate_area(base, height):
+    return((base*height)/2)
+
+
+def calculate_perimeter(base, height):
+    return(base + height + calculate_hypotenuse(base, height))
+
+
+def calculate_aspect(base, height):
+    if base==height:
+        return('equal')
+    elif base>height:
+        return('wide')
+    else:
+        return('tall')
+
+
+# Make sure you reuse the functions you've already got
+# Don't reinvent the wheel
+def get_triangle_facts(base, height, units="mm"):
+    return {"area": calculate_area(base,height),
+            "perimeter": calculate_perimeter(base, height),
+            "height": height,
+            "base": base,
+            "hypotenuse": calculate_hypotenuse(base,height),
+            "aspect": calculate_aspect(base,height),
+            "units": units}
+
+
+# this should return a multi line string that looks a bit like this:
+#
+# 15
+# |
+# |     |\
+# |____>| \  17.0
+#       |  \
+#       |   \
+#       ------
+#       8
+# This triangle is 60.0mm²
+# It has a perimeter of 40.0mm
+# This is a tall triangle.
+#
+# but with the values and shape that relate to the specific
+# triangle we care about.
+def tell_me_about_this_right_triangle(facts_dictionary):
+    tall = """
+            {height}
+            |
+            |     |\\
+            |____>| \\  {hypotenuse}
+                  |  \\
+                  |   \\
+                  ------
+                  {base}"""
+    wide = """
+            {hypotenuse}
+             ↓         ∕ |
+                   ∕     | <-{height}
+               ∕         |
+            ∕------------|
+              {base}"""
+    equal = """
+            {height}
+            |
+            |     |⋱
+            |____>|  ⋱ <-{hypotenuse}
+                  |____⋱
+                  {base}"""
+
+    pattern = ("This triangle is {area}{units}²\n"
+               "It has a perimeter of {perimeter}{units}\n"
+               "This is a {aspect} triangle.\n")
+
+    facts = pattern.format(**facts_dictionary)
+
+
+def triangle_master(base,
+                    height,
+                    return_diagram=False,
+                    return_dictionary=False):
+    if return_diagram and return_dictionary:
+
+        print(calculate_aspect(base, height)+" = " )
 
 
 
-def get_some_details():
-    """Parse some JSON.
 
-    In lazyduck.json is a description of a person from https://randomuser.me/
-    Read it in and use the json library to convert it to a dictionary.
-    Return a new dictionary that just has the last name, password, and the
-    number you get when you add the postcode to the id-value.
-    TIP: Make sure that you add the numbers, not concatinate the strings.
-         E.g. 2000 + 3000 = 5000 not 20003000
-    TIP: Keep a close eye on the format you get back. JSON is nested, so you
-         might need to go deep. E.g to get the name title you would need to:
-         data["results"][0]["name"]["title"]
-         Look out for the type of brackets. [] means list and {} means
-         dictionary, you'll need integer indeces for lists, and named keys for
-         dictionaries.
-    """
-    json_data = open(LOCAL + "/lazyduck.json").read()
 
-    data = json.loads(json_data)
-    return {"lastName":data['results'][0]['name']['last'],
-            "password":data['results'][0]['login']['password']      ,
-            "postcodePlusID":str(data['results'][0]['location']['postcode'])+data['results'][0]['id']['value']
-            }
 
+
+        tall="""
+                {height}
+                |
+                |
+                |___>|\  {hypotenuse}
+                     | \
+                     |  \
+                     -----
+                    {base}"""
+        wide="""
+                {height}
+                |
+                |
+                |___>|\   {hypotenuse}
+                     |   \
+                     |     \
+                     --------
+                     {base}"""
+        equal=""
+
+
+
+
+               
+
+
+
+
+        return 
+    elif return_dictionary:
+
+
+
+
+        return 
+    else:
+        print("You're an odd one, you don't want anything!")
 
 
 def wordy_pyramid():
-    """Make a pyramid out of real words.
-
-    There is a random word generator here:
-    http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1
-    The arguments that the generator takes is the minLength and maxLength of the word
-    as well as the limit, which is the the number of words. 
-    Visit the above link as an example.
-    Use this and the requests library to make a word pyramid. The shortest
-    words they have are 3 letters long and the longest are 20. The pyramid
-    should step up by 2 letters at a time.
-    Return the pyramid as a list of strings.
-    I.e. ["cep", "dwine", "tenoner", ...]
-    [
-    "cep",
-    "dwine",
-    "tenoner",
-    "ectomeric",
-    "archmonarch",
-    "phlebenterism",
-    "autonephrotoxin",
-    "redifferentiation",
-    "phytosociologically",
-    "theologicohistorical",
-    "supersesquitertial",
-    "phosphomolybdate",
-    "spermatophoral",
-    "storiologist",
-    "concretion",
-    "geoblast",
-    "Nereis",
-    "Leto",
-    ]
-    TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
-    """
     import requests
-    list12=[]
-    for s in range(3,20,2):
-        url = 'http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1'.format(s,s)
-        r=requests.get(url)
-        re=json.loads(r.text)
-        words=re[0]['word']
-        list13.append(words)   
-    for i in range(20,3,-2):
-        url = 'http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1'.format(i,i)
-        R=requests.get(url)
-        Re=json.loads(R.text)
-        words=Re[0]['word']
-        list13.append(words)
-    return(list12)
+    baseURL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={0}&maxLength={0}&limit=1"
+    pyramid_list = []
+    for i in range(3, 21, 2):
+        url = baseURL.format(i)
+        r = requests.get(url)
+        message = r.json()[0]['word']
+        pyramid_list.append(message)
+    for i in range(20, 3, -2):
+        url = baseURL.format(str(i))
+        r = requests.get(url)
+        message = r.json()[0]['word']
+        pyramid_list.append(message)
+    return pyramid_list
 
 
-
-def wunderground():
-    """Find the weather station for Sydney.
-
-    Get some json from a request parse it and extract values.
-    Sign up to https://www.wunderground.com/weather/api/ and get an API key
-    TIP: reading json can someimes be a bit confusing. Use a tool like
-         http://www.jsoneditoronline.org/ to help you see what's going on.
-    TIP: these long json accessors base["thing"]["otherThing"] and so on, can
-         get very long. If you are accessing a thing often, assign it to a
-         variable and then future access will be easier.
-    """
-    base = "http://api.wunderground.com/api/"
-    api_key = "cd7620ed9840ee4b"
-    country = "AU"
-    city = "Sydney"
-    template = "{base}/{key}/conditions/q/{country}/{city}.json"
-    url = template.format(base=base, key=api_key, country=country, city=city)
-    r = requests.get(url)
-    the_json = json.loads(r.text)
-    obs = the_json['current_observation']
-
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+def get_a_word_of_length_n(length):
+    pass
 
 
-def diarist():
-    """Read gcode and find facts about it.
-
-    Read in Trispokedovetiles(laser).gcode and count the number of times the
-    laser is turned on and off. That's the command "M10 P1".
-    Write the answer (a number) to a file called 'lasers.pew' in the week4 directory.
-    TIP: you need to write a string, so you'll need to cast your number
-    TIP: Trispokedovetiles(laser).gcode uses windows style line endings. CRLF
-         not just LF like unix does now. If your comparison is failing this
-         might be why. Try in rather than == and that might help.
-    TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
-         the test will have nothing to look at.
-    """
+def list_of_words_with_lengths(list_of_lengths):
     pass
 
 
 if __name__ == "__main__":
-    functions = [obj for name,obj in inspect.getmembers(sys.modules[__name__]) if (inspect.isfunction(obj))]
-    for function in functions:
-        try:
-            print(function())
-        except Exception as e:
-            print(e)
-    if not os.path.isfile("lasers.pew"):
-        print('diarist did not create lasers.pew')
+    do_bunch_of_bad_things()
