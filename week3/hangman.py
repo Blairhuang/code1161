@@ -71,7 +71,7 @@ def getRandomWord(wordList):
     #JSON.load and json.loads(只是转换成string)
     #sent request (server get response)
     #response_json=json.dumps(R.text)
-    
+
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print(HANGMANPICS[len(missedLetters)])
     print()  # hack: print('\n')
@@ -83,6 +83,8 @@ def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     for i in range(len(secretWord)):  # replace blanks with correctly guessed letters
         if secretWord[i] in correctLetters:
             blanks = blanks[:i] + secretWord[i] + blanks[i + 1:]
+            #[i]意思是到i之前的term
+            #1：意思是到i 之后从1 开始的 例如1:3 (1,2 不包括3)
     for letter in blanks:  # show the secret word with spaces in between each letter
         print(letter, end=' ')
     print()

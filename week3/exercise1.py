@@ -20,7 +20,7 @@ def loop_ranger(start, stop=None, step=1):
     return list_1
 
 
-        
+
 
 
 

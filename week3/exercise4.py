@@ -11,7 +11,6 @@ def binary_search(low, high, actual_number):
     for i in range(low,high):
       list1.append(i)
     guess=actual_number
-    tries=0
     found = False
   
     while low <= high and not found:
@@ -27,6 +26,7 @@ def binary_search(low, high, actual_number):
           else: 
             low = midpoint + 1 
             print(str(tries)+'times run.')
+        tries=0
       
 
 

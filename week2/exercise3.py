@@ -26,7 +26,7 @@ def fix_it(moves=True, should_move=True):
     "WD-40"
     "Duct Tape"
     "No Problem"
-    """
+    """    
     if moves == should_move:
         return('No problem')
     else:

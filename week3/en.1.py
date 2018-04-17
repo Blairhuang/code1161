@@ -12,4 +12,6 @@ while True:
 
         #is digit用于str(‘number')
         #try and except 是指如果try不满足的话直接跳到except 但是if中间就是如果不符合不会跳到elif
-        
+    
+
+    li

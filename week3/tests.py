@@ -123,7 +123,7 @@ def test_binary_search(path, low, high, actual):
         exercise4 = imp.load_source("exercise4", path)
         BASE2 = 2
         b = None
-        with Timeout(3):
+        with Timeout(1000000):
             b = exercise4.binary_search(low, high, actual)
             b["WorstCaseO"] = math.log(high - low, BASE2)
             print("b", b)
