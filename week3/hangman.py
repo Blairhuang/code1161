@@ -65,8 +65,13 @@ def getRandomWord(wordList):
     # This function returns a random string from the passed list of strings.
     wordIndex = random.randint(0, len(wordList) - 1)
     return wordList[wordIndex]
-
-
+    #url=....
+    #R= request.get(URL)
+    pass
+    #JSON.load and json.loads(只是转换成string)
+    #sent request (server get response)
+    #response_json=json.dumps(R.text)
+    
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print(HANGMANPICS[len(missedLetters)])
     print()  # hack: print('\n')
@@ -115,11 +120,11 @@ def leaderboard():
 print('H A N G M A N')
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words) 
-gameIsDone = False
+secretWord = getRandomWord(words)# get the word from internet
+gameIsDone = False 
 leaderboard=[]
 player_name=input('Enter your name: ')
-while True:
+while True:#不一样的时候停止 while sth....
     displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
     # Let the player type in a letter.
     guess = getGuess(missedLetters + correctLetters)
